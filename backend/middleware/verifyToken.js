@@ -1,25 +1,29 @@
 import jwt from "jsonwebtoken";
-import { decode } from "punycode";
+import { User } from "../models/user.model.js";
 
-export const verifyToken = (req, res, next) => {
+export const verifyToken = async (req, res, next) => {
   const token = req.cookies.token;
   if (!token) {
-    return res
-      .status(401)
-      .json({ sucess: false, message: "Unauthorized - no token provided" });
+    return res.status(401).json({
+      success: false,
+      message: "Unauthorized - no token provided",
+    });
   }
+
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    if (!decode) {
+    const user = await User.findById(decoded.userId).select("-password");
+    if (!user) {
       return res
         .status(401)
-        .json({ sucess: false, message: "Unauthorized - invalid token" });
+        .json({ success: false, message: "Unauthorized - user not found" });
     }
-    req.userId = decoded.userId;
+
+    req.user = user; // Attach full user object
     next();
   } catch (error) {
     return res
       .status(401)
-      .json({ sucess: false, message: "Unauthorized - invalid token" });
+      .json({ success: false, message: "Unauthorized - invalid token" });
   }
-}
+};
