@@ -7,7 +7,7 @@ export const VERIFICATION_EMAIL_TEMPLATE = `
   <title>Verify Your Email</title>
 </head>
 <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-  <div style="background: linear-gradient(to right, #4CAF50, #45a049); padding: 20px; text-align: center;">
+  <div style="background: linear-gradient(to right, #f06292, #ba68c8); padding: 20px; text-align: center;">
     <h1 style="color: white; margin: 0;">Verify Your Email</h1>
   </div>
   <div style="background-color: #f9f9f9; padding: 20px; border-radius: 0 0 5px 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
@@ -89,6 +89,37 @@ export const PASSWORD_RESET_REQUEST_TEMPLATE = `
   </div>
   <div style="text-align: center; margin-top: 20px; color: #888; font-size: 0.8em;">
     <p>This is an automated message, please do not reply to this email.</p>
+  </div>
+</body>
+</html>
+`;
+
+export const NAARI_WELCOME_EMAIL_TEMPLATE = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to NAARI</title>
+</head>
+<body style="font-family: Arial, sans-serif; color: #333; padding: 20px; max-width: 600px; margin: auto;">
+  <div style="background: linear-gradient(to right, #f06292, #ba68c8); padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
+    <h1 style="color: white;">Welcome to NAARI 🌸</h1>
+  </div>
+  <div style="background-color: #fff8f9; padding: 20px; border-radius: 0 0 8px 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+    <p>Hi {name},</p>
+    <p>Welcome to <strong>NAARI</strong> — your safe space for support, growth, and empowerment.</p>
+    <p>You’ve taken a brave and beautiful step in your PCOS journey, and we’re honored to be part of it.</p>
+    <ul>
+      <li>✨ Track your cycle & symptoms</li>
+      <li>🌿 Get natural remedy tips</li>
+      <li>💬 Feel supported every step of the way</li>
+    </ul>
+    <p>You are not alone. You are strong. You are NAARI 💪</p>
+    <p>With love,<br>The NAARI Team 💖</p>
+  </div>
+  <div style="text-align: center; font-size: 0.8em; color: #aaa; margin-top: 20px;">
+    <p>This is an automated message. Please do not reply.</p>
   </div>
 </body>
 </html>
