@@ -112,7 +112,7 @@ export const login = async (req, res) => {
         .status(400)
         .json({ success: false, message: "Invalid email or password" });
     }
-    generateTokenAndSetCookie(res, user._id);
+    generateTokenAndSetCookie(res, user);
 
     user.lastLogin = new Date();
     await user.save();
@@ -205,7 +205,7 @@ export const resetPassword = async (req, res) => {
 
 export const checkAuth = async (req, res) => {
 	try {
-		const user = await User.findById(req.userId).select("-password");
+		const user = await User.findById(req.user._id).select("-password");
 		if (!user) {
 			return res.status(400).json({ success: false, message: "User not found" });
 		}
