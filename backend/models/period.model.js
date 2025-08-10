@@ -14,7 +14,10 @@ const periodLogSchema = new mongoose.Schema({
 
   // Optional details
   painLevel: { type: Number, min: 1, max: 10 },
-  mood: [String], // e.g. ['anxious', 'sad', 'energized']
+  mood: {
+    type: String,
+    enum: ['anxious', 'sad', 'energized']
+  }, 
   energyLevel: {
     type: String,
     enum: ["low", "moderate", "high"]
@@ -27,7 +30,7 @@ const periodLogSchema = new mongoose.Schema({
   // Lifestyle & context
   sleepQuality: {
     type: String,
-    enum: ["poor", "average", "good"]
+    enum: ["poor", "average", "good", "excellent"]
   },
   activityLevel: {
     type: String,
