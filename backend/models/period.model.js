@@ -13,7 +13,10 @@ const periodLogSchema = new mongoose.Schema({
   },
 
   // Optional details
-  painLevel: { type: Number, min: 1, max: 10 },
+  painLevel: { 
+    type: String,
+    enum: ['low','moderate','high','extreme'] 
+  },
   mood: {
     type: String,
     enum: ['anxious', 'sad', 'energized']
